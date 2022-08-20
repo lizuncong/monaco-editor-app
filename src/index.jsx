@@ -108,7 +108,9 @@ const CodeEditor = memo(() => {
     >
       <button
         onClick={() => {
-          editorRef.current.trigger("editor", "editor.action.formatDocument");
+          editorRef.current.colorizeElement(document.getElementById("code"));
+
+          // editorRef.current.trigger("editor", "editor.action.formatDocument");
         }}
       >
         格式化
