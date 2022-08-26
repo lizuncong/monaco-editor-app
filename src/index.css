@@ -1,0 +1,20 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+  user-select: none;
+}
+ul,
+li {
+  list-style: none;
+}
+input {
+  outline: none;
+}
+h2 {
+  margin: 0;
+}

@@ -1,0 +1,19 @@
+.app {
+  height: 100%;
+  display: flex;
+}
+
+.left {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: #001529;
+  :global {
+    .ant-menu {
+      height: 100%;
+    }
+  }
+}
+.main {
+  flex: 1;
+  padding: 12px;
+}
