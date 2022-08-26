@@ -9,6 +9,10 @@ const Basic = loadable(() =>
   import(/* webpackChunkName: "basic" */ "./pages/basic")
 );
 
+const Format = loadable(() =>
+  import(/* webpackChunkName: "format" */ "./pages/format")
+);
+
 class IRouter extends React.Component {
   render() {
     return (
@@ -16,6 +20,7 @@ class IRouter extends React.Component {
         <App>
           <Switch>
             <Route path="/basic/create" component={Basic} />
+            <Route path="/basic/format" component={Format} />
             <Redirect to="/basic/create" />
           </Switch>
         </App>

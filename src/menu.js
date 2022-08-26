@@ -9,6 +9,11 @@ const menuList = [
         menuId: "1001",
         url: "/basic/create",
       },
+      {
+        title: "代码格式化",
+        menuId: "1002",
+        url: "/basic/format",
+      },
     ],
   },
   {
