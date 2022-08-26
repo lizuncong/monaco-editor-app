@@ -39,7 +39,7 @@ const menuList = [
       {
         title: "HTML标签未闭合检测",
         menuId: "2002",
-        url: "/advanced/tagclosed",
+        url: "/advanced/tagcheck",
       },
     ],
   },

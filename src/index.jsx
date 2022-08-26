@@ -25,6 +25,10 @@ const AutoClose = loadable(() =>
   import(/* webpackChunkName: "autoclose" */ "./pages/autoComplete")
 );
 
+const TagCheck = loadable(() =>
+  import(/* webpackChunkName: "tagcheck" */ "./pages/tagCheck")
+);
+
 class IRouter extends React.Component {
   render() {
     return (
@@ -36,6 +40,7 @@ class IRouter extends React.Component {
             <Route path="/basic/ontextchange" component={OnTextChange} />
             <Route path="/basic/relayout" component={ReLayout} />
             <Route path="/advanced/autoclose" component={AutoClose} />
+            <Route path="/advanced/tagcheck" component={TagCheck} />
             <Redirect to="/basic/create" />
           </Switch>
         </App>
