@@ -14,6 +14,11 @@ const menuList = [
         menuId: "1002",
         url: "/basic/format",
       },
+      {
+        title: "重新布局",
+        menuId: "1003",
+        url: "/basic/relayout",
+      },
     ],
   },
   {

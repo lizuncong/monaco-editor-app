@@ -30,11 +30,15 @@ margin-right: 0 !important;
 const CodeEditor = memo(() => {
   const editorCountainerRef = useRef(null);
   let editorRef = useRef(null);
+  const debounceRef = useRef({
+    layoutTimerId: null,
+  });
   useEffect(() => {
     if (editorCountainerRef.current) {
       editorRef.current = monaco.editor.create(editorCountainerRef.current, {
         value: defaultCode,
         language: "html",
+        // automaticLayout: true, // 不建议打开，影响性能
       });
     }
     return () => {
@@ -42,17 +46,24 @@ const CodeEditor = memo(() => {
     };
   }, [editorCountainerRef]);
 
+  useEffect(() => {
+    // 原本也可以通过打开这个automaticLayout属性自动重排，但这个属性会影响性能
+    const reLayout = () => {
+      if (debounceRef.current.layoutTimerId) {
+        clearTimeout(debounceRef.current.layoutTimerId);
+      }
+      debounceRef.current.layoutTimerId = setTimeout(() => {
+        editorRef.current.layout();
+      }, 300);
+    };
+    window.addEventListener("resize", reLayout);
+    return () => {
+      window.removeEventListener("resize", reLayout);
+    };
+  }, []);
+
   return (
-    <div
-      className={styles.format}
-      onKeyDown={(e) => {
-        const keyCode = event.keyCode || event.which || event.charCode;
-        const keyCombination = event.ctrlKey;
-        if (keyCode === 83 && keyCombination) {
-          editorRef.current.trigger("editor", "editor.action.formatDocument");
-        }
-      }}
-    >
+    <div className={styles.container}>
       <div className={styles.header}>可以使用ctrl + s快捷键格式化</div>
       <div className={styles.editor} ref={editorCountainerRef}></div>
     </div>
