@@ -21,6 +21,9 @@ const OnTextChange = loadable(() =>
   import(/* webpackChunkName: "ontextchange" */ "./pages/onchange")
 );
 
+const AutoClose = loadable(() =>
+  import(/* webpackChunkName: "autoclose" */ "./pages/autoComplete")
+);
 
 class IRouter extends React.Component {
   render() {
@@ -32,6 +35,7 @@ class IRouter extends React.Component {
             <Route path="/basic/format" component={Format} />
             <Route path="/basic/ontextchange" component={OnTextChange} />
             <Route path="/basic/relayout" component={ReLayout} />
+            <Route path="/advanced/autoclose" component={AutoClose} />
             <Redirect to="/basic/create" />
           </Switch>
         </App>

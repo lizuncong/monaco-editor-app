@@ -32,8 +32,13 @@ const menuList = [
     url: "/advanced",
     children: [
       {
-        title: "HTML标签未闭合检测",
+        title: "HTML标签自动闭合",
         menuId: "2001",
+        url: "/advanced/autoclose",
+      },
+      {
+        title: "HTML标签未闭合检测",
+        menuId: "2002",
         url: "/advanced/tagclosed",
       },
     ],
