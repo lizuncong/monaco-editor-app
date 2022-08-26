@@ -1,7 +1,9 @@
-import React, { memo, useEffect, useRef } from "react";
+import React, { memo, useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import styles from "./index.module.less";
 import * as monaco from "monaco-editor";
+import languages from "./language";
+// const { Option } = Select;
 
 const defaultCode = `
 <style>
@@ -28,6 +30,7 @@ margin-right: 0 !important;
 `;
 
 const CodeEditor = memo(() => {
+  const [language, setLanguage] = useState("html");
   const editorCountainerRef = useRef(null);
   let editorRef = useRef(null);
   useEffect(() => {
@@ -42,7 +45,29 @@ const CodeEditor = memo(() => {
     };
   }, [editorCountainerRef]);
 
-  return <div className={styles.basic} ref={editorCountainerRef}></div>;
+  return (
+    <div className={styles.basic}>
+      <div>
+        <select
+          value={language}
+          onChange={(e) => {
+            const v = e.target.value;
+            setLanguage(v);
+            // 切换语言
+            monaco.editor.setModelLanguage(
+              monaco.editor.getModels()[0],
+              v
+            );
+          }}
+        >
+          {languages.map((lan) => (
+            <option key={lan}>{lan}</option>
+          ))}
+        </select>
+      </div>
+      <div className={styles.editor} ref={editorCountainerRef}></div>
+    </div>
+  );
 });
 
 export default CodeEditor;
