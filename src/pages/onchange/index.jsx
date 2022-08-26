@@ -29,16 +29,16 @@ margin-right: 0 !important;
 
 const CodeEditor = memo(() => {
   const editorCountainerRef = useRef(null);
+  const subscriptionRef = useRef(null);
   let editorRef = useRef(null);
   const debounceRef = useRef({
-    layoutTimerId: null,
+    changeTimerId: null,
   });
   useEffect(() => {
     if (editorCountainerRef.current) {
       editorRef.current = monaco.editor.create(editorCountainerRef.current, {
         value: defaultCode,
         language: "html",
-        // automaticLayout: true, // 不建议打开，影响性能
       });
     }
     return () => {
@@ -47,24 +47,26 @@ const CodeEditor = memo(() => {
   }, [editorCountainerRef]);
 
   useEffect(() => {
-    // 原本也可以通过打开这个automaticLayout属性自动重排，但这个属性会影响性能
-    const reLayout = () => {
-      if (debounceRef.current.layoutTimerId) {
-        clearTimeout(debounceRef.current.layoutTimerId);
+    // 监听文本内容变化
+    subscriptionRef.current = editorRef.current.onDidChangeModelContent(
+      (value) => {
+        if (debounceRef.current.changeTimerId) {
+          clearTimeout(debounceRef.current.changeTimerId);
+        }
+        debounceRef.current.changeTimerId = setTimeout(() => {
+          console.log("value change：", editorRef.current.getValue());
+        }, 300);
       }
-      debounceRef.current.layoutTimerId = setTimeout(() => {
-        editorRef.current.layout();
-      }, 300);
-    };
-    window.addEventListener("resize", reLayout);
+    );
     return () => {
-      window.removeEventListener("resize", reLayout);
+      subscriptionRef.current.dispose();
+      subscriptionRef.current = null;
     };
   }, []);
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>拖动窗口触发重新布局</div>
+      <div className={styles.header}>监听内容变化</div>
       <div className={styles.editor} ref={editorCountainerRef}></div>
     </div>
   );

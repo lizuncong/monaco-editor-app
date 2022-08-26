@@ -17,6 +17,11 @@ const ReLayout = loadable(() =>
   import(/* webpackChunkName: "relayout" */ "./pages/relayout")
 );
 
+const OnTextChange = loadable(() =>
+  import(/* webpackChunkName: "ontextchange" */ "./pages/onchange")
+);
+
+
 class IRouter extends React.Component {
   render() {
     return (
@@ -25,6 +30,7 @@ class IRouter extends React.Component {
           <Switch>
             <Route path="/basic/create" component={Basic} />
             <Route path="/basic/format" component={Format} />
+            <Route path="/basic/ontextchange" component={OnTextChange} />
             <Route path="/basic/relayout" component={ReLayout} />
             <Redirect to="/basic/create" />
           </Switch>

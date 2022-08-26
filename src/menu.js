@@ -19,6 +19,11 @@ const menuList = [
         menuId: "1003",
         url: "/basic/relayout",
       },
+      {
+        title: "监听代码编辑",
+        menuId: "1004",
+        url: "/basic/ontextchange",
+      },
     ],
   },
   {
