@@ -29,6 +29,10 @@ const TagCheck = loadable(() =>
   import(/* webpackChunkName: "tagcheck" */ "./pages/tagCheck")
 );
 
+const ContextMenu = loadable(() =>
+  import(/* webpackChunkName: "contextmenu" */ "./pages/contextMenu")
+);
+
 class IRouter extends React.Component {
   render() {
     return (
@@ -39,6 +43,7 @@ class IRouter extends React.Component {
             <Route path="/basic/format" component={Format} />
             <Route path="/basic/ontextchange" component={OnTextChange} />
             <Route path="/basic/relayout" component={ReLayout} />
+            <Route path="/basic/contextMenu" component={ContextMenu} />
             <Route path="/advanced/autoclose" component={AutoClose} />
             <Route path="/advanced/tagcheck" component={TagCheck} />
             <Redirect to="/basic/create" />

@@ -24,6 +24,11 @@ const menuList = [
         menuId: "1004",
         url: "/basic/ontextchange",
       },
+      {
+        title: "右键面板定制",
+        menuId: "1005",
+        url: "/basic/contextmenu",
+      },
     ],
   },
   {

@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import styles from "./index.module.less";
 import * as monaco from "monaco-editor";
 
+import './removeContextMenuItem'
+
+
 const defaultCode = `
 <style>
 .zoom {
@@ -35,7 +38,6 @@ const CodeEditor = memo(() => {
       editorRef.current = monaco.editor.create(editorCountainerRef.current, {
         value: defaultCode,
         language: "html",
-        formatOnPaste: true,
       });
     }
     return () => {
@@ -44,17 +46,8 @@ const CodeEditor = memo(() => {
   }, [editorCountainerRef]);
 
   return (
-    <div
-      className={styles.format}
-      onKeyDown={(e) => {
-        const keyCode = event.keyCode || event.which || event.charCode;
-        const keyCombination = event.ctrlKey;
-        if (keyCode === 83 && keyCombination) {
-          editorRef.current.trigger("editor", "editor.action.formatDocument");
-        }
-      }}
-    >
-      <div className={styles.header}>可以使用ctrl + s快捷键格式化</div>
+    <div className={styles.container}>
+      <div className={styles.header}>定制右键面板，删除右键面板的一些菜单项</div>
       <div className={styles.editor} ref={editorCountainerRef}></div>
     </div>
   );
