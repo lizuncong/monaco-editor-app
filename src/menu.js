@@ -29,6 +29,11 @@ const menuList = [
         menuId: "1005",
         url: "/basic/contextmenu",
       },
+      {
+        title: "主题颜色定制",
+        menuId: "1006",
+        url: "/basic/customtheme",
+      },
     ],
   },
   {

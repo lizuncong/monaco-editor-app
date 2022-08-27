@@ -33,6 +33,10 @@ const ContextMenu = loadable(() =>
   import(/* webpackChunkName: "contextmenu" */ "./pages/contextMenu")
 );
 
+const CustomTheme = loadable(() =>
+  import(/* webpackChunkName: "customtheme" */ "./pages/customThemes")
+);
+
 class IRouter extends React.Component {
   render() {
     return (
@@ -44,6 +48,7 @@ class IRouter extends React.Component {
             <Route path="/basic/ontextchange" component={OnTextChange} />
             <Route path="/basic/relayout" component={ReLayout} />
             <Route path="/basic/contextMenu" component={ContextMenu} />
+            <Route path="/basic/customtheme" component={CustomTheme} />
             <Route path="/advanced/autoclose" component={AutoClose} />
             <Route path="/advanced/tagcheck" component={TagCheck} />
             <Redirect to="/basic/create" />
