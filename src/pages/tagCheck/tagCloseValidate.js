@@ -22,6 +22,7 @@ const sendData = (html) => {
   });
 };
 async function validate(model) {
+  console.log(model, model.getValue())
   const res = await sendData(model.getValue());
   const markers = [];
   res.messages.forEach(m => {

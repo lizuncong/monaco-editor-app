@@ -51,6 +51,11 @@ const menuList = [
         menuId: "2002",
         url: "/advanced/tagcheck",
       },
+      {
+        title: "自动补全样式",
+        menuId: "2004",
+        url: "/advanced/testPage",
+      },
     ],
   },
 ];

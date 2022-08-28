@@ -37,6 +37,11 @@ const CustomTheme = loadable(() =>
   import(/* webpackChunkName: "customtheme" */ "./pages/customThemes")
 );
 
+const TestPage = loadable(() =>
+  import(/* webpackChunkName: "customtheme" */ "./pages/testPage")
+);
+
+
 class IRouter extends React.Component {
   render() {
     return (
@@ -51,6 +56,7 @@ class IRouter extends React.Component {
             <Route path="/basic/customtheme" component={CustomTheme} />
             <Route path="/advanced/autoclose" component={AutoClose} />
             <Route path="/advanced/tagcheck" component={TagCheck} />
+            <Route path="/advanced/TestPage" component={TestPage} />
             <Redirect to="/basic/create" />
           </Switch>
         </App>
