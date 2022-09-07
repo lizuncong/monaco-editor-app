@@ -51,6 +51,11 @@ const menuList = [
         menuId: "2002",
         url: "/advanced/tagcheck",
       },
+      {
+        title: "Handlebars格式化",
+        menuId: "2003",
+        url: "/advanced/handlebar-formatter",
+      },
     ],
   },
 ];

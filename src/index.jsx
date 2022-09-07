@@ -37,6 +37,10 @@ const CustomTheme = loadable(() =>
   import(/* webpackChunkName: "customtheme" */ "./pages/customThemes")
 );
 
+const HandlebarFormatter = loadable(() =>
+  import(/* webpackChunkName: "handlebarFormatter" */ "./pages/handlebarFormatter")
+);
+
 class IRouter extends React.Component {
   render() {
     return (
@@ -51,6 +55,7 @@ class IRouter extends React.Component {
             <Route path="/basic/customtheme" component={CustomTheme} />
             <Route path="/advanced/autoclose" component={AutoClose} />
             <Route path="/advanced/tagcheck" component={TagCheck} />
+            <Route path="/advanced/handlebar-formatter" component={HandlebarFormatter} />
             <Redirect to="/basic/create" />
           </Switch>
         </App>
