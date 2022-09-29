@@ -1,7 +1,7 @@
 import * as monaco from "monaco-editor";
-import { LinesAndColumns } from "lines-and-columns";
-import prettier from "prettier/standalone";
-import parserBabel from "prettier/parser-glimmer";
+// import { LinesAndColumns } from "lines-and-columns";
+// import prettier from "prettier/standalone";
+// import parserBabel from "prettier/parser-glimmer";
 
 // monaco.languages.registerDocumentFormattingEditProvider("handlebars", {
 //   provideDocumentFormattingEdits(model, options) {
@@ -19,11 +19,11 @@ import parserBabel from "prettier/parser-glimmer";
 //   },
 // });
 
-const lines = new LinesAndColumns(
-  `table {
-    border: 0
-  }`
-);
+// const lines = new LinesAndColumns(
+//   `table {
+//     border: 0
+//   }`
+// );
 
 console.log('lines...', lines)
 console.log('lines...', lines.locationForIndex(23))
