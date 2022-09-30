@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import loadable from "@loadable/component";
 import "./index.css";
 import App from "./App";
-
+console.log("test");
 const Basic = loadable(() =>
   import(/* webpackChunkName: "basic" */ "./pages/basic")
 );
@@ -38,7 +38,9 @@ const CustomTheme = loadable(() =>
 );
 
 const HandlebarFormatter = loadable(() =>
-  import(/* webpackChunkName: "handlebarFormatter" */ "./pages/handlebarFormatter")
+  import(
+    /* webpackChunkName: "handlebarFormatter" */ "./pages/handlebarFormatter"
+  )
 );
 
 class IRouter extends React.Component {
@@ -55,7 +57,10 @@ class IRouter extends React.Component {
             <Route path="/basic/customtheme" component={CustomTheme} />
             <Route path="/advanced/autoclose" component={AutoClose} />
             <Route path="/advanced/tagcheck" component={TagCheck} />
-            <Route path="/advanced/handlebar-formatter" component={HandlebarFormatter} />
+            <Route
+              path="/advanced/handlebar-formatter"
+              component={HandlebarFormatter}
+            />
             <Redirect to="/basic/create" />
           </Switch>
         </App>
