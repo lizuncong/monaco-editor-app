@@ -25,5 +25,5 @@ import * as monaco from "monaco-editor";
 //   }`
 // );
 
-console.log('lines...', lines)
-console.log('lines...', lines.locationForIndex(23))
+// console.log('lines...', lines)
+// console.log('lines...', lines.locationForIndex(23))

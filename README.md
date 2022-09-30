@@ -1,6 +1,6 @@
 ## Monaco Editor App
 
-本仓库用于演示[Monoca Editor](https://microsoft.github.io/monaco-editor/)的用法
+本仓库用于演示[Monoca Editor](https://microsoft.github.io/monaco-editor/)的用法。本项目已部署在 github page，可以通过[https://lizuncong.github.io/monaco-editor-app/](https://lizuncong.github.io/monaco-editor-app/)访问
 
 ## 运行
 
