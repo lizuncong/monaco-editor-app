@@ -1,18 +1,19 @@
-name: Greeting from Mona
+name: GitHub Actions Build and Deploy
 on:
   push:
     branches:
       - master
 jobs:
-  my-job:
-    name: My Job
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Print a greeting
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@master
         env:
-          MY_VAR: Hi there! My name is
-          FIRST_NAME: "李"
-          MIDDLE_NAME: "三"
-          LAST_NAME: "四ci"
-        run: |
-          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist
+          BUILD_SCRIPT: npm install && npm run build
